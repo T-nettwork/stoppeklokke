@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<H1>StoppeKlokke</H1>
+
+<body>
+
+    <style>
+        div.klokkeknapp {
+            border-style: solid;
+            width: 87%;
+            margin: 5%;
+            display: grid;
+            text-align: center;
+            color: rgb(255, 255, 255);
+
+        }
+
+        body {
+            background-color: rgb(67, 72, 139);
+            margin: 0%;
+            width: 21%;
+        }
+
+        div.timer {
+            text-align: center;
+            font-size: 300%;
+            border-style: solid;
+            margin: 5%;
+            color: rgb(255, 255, 255);
+        }
+
+        H1 {
+            text-align: center;
+
+        }
+
+        button {
+            background-color: #8a5e5e;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+    <div class="klokkeknapp">
+        <button onclick="start()">Start</button>
+        <button onclick="pause()">pause</button>
+        <button onclick="reset()">reset</button>
+    </div>
+    <div id="app" class="timer">0</div>
+    rundetimer: <div id="sisterunde"></div> <br>
+    </div>
+
+
+    <script>
+        const app = document.getElementById('app');
+        const roundtime = document.getElementById('sisterunde');
+        let seconds = 0;
+        var timer;
+
+
+        function start() {
+            setInterval(teller, 1000);
+        }
+
+        function teller() {
+            app.innerHTML = seconds;
+            seconds++;
+        }
+
+        function pause() {
+            roundtime.innerHTML += `<li>${seconds - 1} sekunder</li>`;
+            clearInterval(timer);
+            seconds = 0;
+        }
+
+        function reset() {
+            location.reload()
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
